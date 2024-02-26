@@ -15,16 +15,19 @@
     <div id="app"></div>
     <script type="module" src="/static/js/index.js"></script>
     <script>
-        fetch('https://localhost:443/api/doc/', {
+        fetch('https://localhost/api/register', {
+            method: "POST",
+            body: JSON.stringify({
+                "username": "Testpush2",
+                "email": "Testpush2",
+                "password": "Testpush2"
+            }),
             headers: {
-                'Accept': '*/*',
-                'Access-Control-Allow-Origin': 'localhost:443',
-                'Access-Control-Allow-Origin': 'https://localhost/api/doc',
-                'Accept': 'application/json'
+                "Content-Type": "application/json; charset=UTF-8"
             }
-            })
-                .then(response => response.text())
-                .then(text => console.log(text))
+        })
+            .then(response => response.text())
+            .then(text => console.log(text))
     </script>   
 </body>
 </html>
