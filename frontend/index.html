@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Page App</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+<body>
+    <nav class="nav">
+        <a href="/" class="nav__link" data-link>Dashboard</a>
+        <a href="/posts" class="nav__link" data-link>Posts</a>
+        <a href="/settings" class="nav__link" data-link>Settings</a>
+    </nav>
+    <div id="app"></div>
+    <script type="module" src="/static/js/index.js"></script>
+    <script>
+        fetch('https://localhost:443/api/doc/', {
+            headers: {
+                'Accept': '*/*',
+                'Access-Control-Allow-Origin': 'localhost:443',
+                'Access-Control-Allow-Origin': 'https://localhost/api/doc',
+                'Accept': 'application/json'
+            }
+            })
+                .then(response => response.text())
+                .then(text => console.log(text))
+    </script>   
+</body>
+</html>
