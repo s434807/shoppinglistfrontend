@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Single Page App</title>
     <link rel="stylesheet" href="/static/css/index.css">
 </head>
+
 <body>
     <nav class="nav">
-        <a href="/" class="nav__link" data-link>Dashboard</a>
-        <a href="/posts" class="nav__link" data-link>Posts</a>
-        <a href="/settings" class="nav__link" data-link>Settings</a>
+        <a href="/" class="nav__link" data-link>Login</a>
+        <a href="/register" class="nav__link" data-link>Register</a>
+        <a href="/lists" class="nav__link" data-link>Your Lists</a>
+        <a href="/sharees" class="nav__link" data-link>Sharees</a>
+        <a href="/shareeslists" class="nav__link" data-link>Your Shared Lists</a>
     </nav>
     <div id="app"></div>
     <script type="module" src="/static/js/index.js"></script>
-    <script>
-        fetch('https://localhost/api/register', {
-            method: "POST",
-            body: JSON.stringify({
-                "username": "Testpush2",
-                "email": "Testpush2",
-                "password": "Testpush2"
-            }),
-            headers: {
-                "Content-Type": "application/json; charset=UTF-8"
-            }
-        })
-            .then(response => response.text())
-            .then(text => console.log(text))
-    </script>   
+    <div style="text-align:center" class="container"></div>
+
+    <script type = "text/javascript" src="/static/js/shop-accountlogin.js"></script>
+    <script type = "text/javascript" src="/static/js/shop-accountregister.js"></script>
+    <script type = "text/javascript" src="/static/js/shop-itemfunctions.js"></script>
+    <script type = "text/javascript" src="/static/js/shop-listfunctions.js"></script>
+    <script type = "text/javascript" src="/static/js/shop-shareefunctions.js"></script>
+    <script type = "text/javascript" src="/static/js/jwtstorage.js"></script>
+    <script type = "text/javascript" src="/static/js/jwtusage.js"></script>
 </body>
+
 </html>

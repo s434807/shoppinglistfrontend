@@ -1,10 +1,13 @@
-import Dashboard from "./views/Dashboard.js";
-import Posts from "./views/Posts.js";
-import PostView from "./views/PostView.js";
-import Settings from "./views/Settings.js";
+import Login from "./views/Login.js";
+import Register from "./views/Register.js";
+import Lists from "./views/Lists.js";
+import ListsView from "./views/ListsView.js";
+import Sharees from "./views/Sharees.js";
+import ShareesLists from "./views/ShareesLists.js";
+import ShareesListsView from "./views/ShareesListsView.js";
 
-const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
-
+//const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
+const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "\/?$", "i");
 const getParams = match => {
     const values = match.result.slice(1);
     const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map(result => result[1]);
@@ -21,10 +24,13 @@ const navigateTo = url => {
 
 const router = async () => {
     const routes = [
-        { path: "/", view: Dashboard },
-        { path: "/posts", view: Posts },
-        { path: "/posts/:id", view: PostView },
-        { path: "/settings", view: Settings }
+        { path: "/", view: Login },
+        { path: "/register", view: Register },
+        { path: "/lists", view: Lists },
+        { path: "/lists/:id", view: ListsView },
+        { path: "/sharees", view: Sharees },
+        { path: "/shareeslists", view: ShareesLists },
+        { path: "/shareeslists/:id", view: ShareesListsView },
     ];
 
     // Test each route for potential match
